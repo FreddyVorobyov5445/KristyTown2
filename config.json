@@ -1,7 +1,7 @@
 {
-	"title": "Your Town",
-	"twitterLink": "<LINK_TO_TWITTER>",
-	"contactEmail": "your_contact_email@example.com",
+	"title": "Dangerous Town | <3",
+	"twitterLink": "https://twitter.com/russ0wen",
+	"contactEmail": "mrpotato@outlook.com",
 	"port": 8090,
 	"adminPort": 8091,
 	"host": "http://localhost:8090/",
@@ -9,7 +9,7 @@
 	"adminLocal": "localhost:8091",
 	"secret": "gfhfdshtrdhgedryhe4t3y5uwjthr",
 	"token": "sdlfgihsdor8ghor8dgdrgdegrdg",
-	"db": "mongodb://<username>:<password>@localhost:27017/<database_name>",
+	"db": "mongodb+srv://owenkuznetsov:ohhoney13@dangerous-town.azbdw.mongodb.net/test",
 	"oauth": {
 		"google": {
 			"clientID": "<CLIENT_ID_HERE>",
@@ -23,8 +23,8 @@
 			"port": 8090,
 			"path": "/s00/ws",
 			"local": "localhost:8090",
-			"name": "Test server",
-			"desc": "Testing server",
+			"name": "ooao",
+			"desc": "E.T",
 			"flags": {
 				"test": true
 			}

@@ -44,6 +44,7 @@ const readFile = src => fs.readFileSync(src, { encoding: 'utf-8' });
 
 const lintCode = code => (code.trim() + '\n')
 	.replace(/\r\n/g, '\n')
+	.replace(/\n/g, '\r\n')
 	.replace(/  /g, '\t')
 	.replace(/"/g, "'");
 
@@ -69,8 +70,8 @@ const manifest = cb => {
 		short_name: config.title,
 		start_url: '/',
 		scope: '/',
-		theme_color: '#5b6ee1',
-		background_color: '#5b6ee1',
+		theme_color: '#333333',
+		background_color: '#333333',
 		display: 'standalone',
 		icons: [
 			{
@@ -321,16 +322,8 @@ const setProd = cb => {
 	cb();
 };
 
-const warnAboutTscBeingDumb = cb => {
-	console.log("You're probably about to see some warnings from tsc about not being able to find certain files.");
-	console.log("Don't worry about these. It's a known issue regarding circular build dependencies. The build should continue despite these errors.");
-	cb();
-};
-
 const empty = cb => cb();
-const tsTools = gulp.series(warnAboutTscBeingDumb, npmScript('ts-tools'));
 const spritesTask = argv.sprites ? sprites : empty;
-const buildSprites = gulp.series(tsTools, sprites);
 
 const build = gulp.series(clean, setProd, common, ts, webpackProd, sw, size);
 const admin = gulp.series(clearnAdmin, setProd, sassAdmin, ts, webpackAdmin);
@@ -341,7 +334,6 @@ module.exports = {
 	admin,
 	build,
 	dev,
-	sprites: buildSprites,
 	default: dev,
 	test: watchTests,
 };

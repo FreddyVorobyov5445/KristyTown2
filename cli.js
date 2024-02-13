@@ -1,4 +1,4 @@
-require('./src/scripts/server/boot');
+require('./src/scripts/server/boot.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const _ = require('lodash');
@@ -87,7 +87,7 @@ function generatePonyStats() {
 			]));
 
 		fs.writeFileSync('stats.csv', `${toCsv(setsData)}\n\n${toCsv(fieldsData)}`, 'utf8');
-		console.log('done');
+		console.log('Listo!');
 		process.exit();
 	});
 
